@@ -57,3 +57,34 @@ valid_parenthesis("[)")
 
 # test 2
 valid_parenthesis("[]()")
+
+# 2nd approach
+valid_parenthesis2 <- function(string){
+  parenthesis <- c(`{` = "}", `(` = ")", `[` = "]")
+  s_split <- strsplit(string, split="")[[1]]
+
+  for(i in 1:length(s_split)){
+    if (s_split[i] %in% names(parenthesis)){
+      if(s_split[i+1] != parenthesis[s_split[i]]){
+        return(FALSE)
+      } else if(s_split[i+1] == s_split[i]){
+        return(FALSE)
+      } else{
+        return(TRUE)
+      }
+    }
+  }
+  
+}
+
+# test 1
+valid_parenthesis2("[)(]")
+
+# test 2
+valid_parenthesis2("[](){}")
+
+# test 3
+valid_parenthesis2("[][[]")
+valid_parenthesis2("[{]]})(")
+
+
