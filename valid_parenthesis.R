@@ -58,6 +58,9 @@ valid_parenthesis("[)")
 # test 2
 valid_parenthesis("[]()")
 
+# test 3
+valid_parenthesis("[][[]") # returns TRUE?
+
 # 2nd approach
 valid_parenthesis2 <- function(string){
   parenthesis <- c(`{` = "}", `(` = ")", `[` = "]")
